@@ -50,7 +50,7 @@ async def skip(client, m: Message):
                     text="• Mᴇɴᴜ", callback_data="cbmenu"
                 ),
                 InlineKeyboardButton(
-                    text="• Cʟᴏsᴇ", callback_data="cls"
+                    text="🗑️ Cʟᴏsᴇ", callback_data="cls"
                 ),
             ]
         ]
@@ -100,7 +100,7 @@ async def stop(client, m: Message):
         try:
             await call_py.leave_group_call(chat_id)
             clear_queue(chat_id)
-            await m.reply("✅ The userbot has disconnected from the video chat.")
+            await m.reply("✅ Assistant has disconnected from the video chat.")
         except Exception as e:
             await m.reply(f"🚫 **error:**\n\n`{e}`")
     else:
@@ -120,7 +120,7 @@ async def pause(client, m: Message):
                 "⏸ **Track paused.**\n\n• **To resume the stream, use the**\n» /resume command."
             )
         except Exception as e:
-            await m.reply(f"🚫 **error:**\n\n`{e}`")
+            await m.reply(f" **error:**\n\n`{e}`")
     else:
         await m.reply("❌ **nothing in streaming**")
 
@@ -138,7 +138,7 @@ async def resume(client, m: Message):
                 "▶️ **Track resumed.**\n\n• **To pause the stream, use the**\n» /pause command."
             )
         except Exception as e:
-            await m.reply(f"🚫 **error:**\n\n`{e}`")
+            await m.reply(f" **error:**\n\n`{e}`")
     else:
         await m.reply("❌ **nothing in streaming**")
 
@@ -153,7 +153,7 @@ async def mute(client, m: Message):
         try:
             await call_py.mute_stream(chat_id)
             await m.reply(
-                "🔇 **Userbot muted.**\n\n• **To unmute the userbot, use the**\n» /unmute command."
+                "🔇 **Assistant muted.**\n\n• **To unmute the Assistant, use the**\n» /unmute command."
             )
         except Exception as e:
             await m.reply(f"🚫 **error:**\n\n`{e}`")
